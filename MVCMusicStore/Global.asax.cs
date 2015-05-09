@@ -7,6 +7,9 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
+using System.Data.Entity;
+using MVCMusicStore.Models;
+
 namespace MVCMusicStore
 {
     // Note: For instructions on enabling IIS7 classic mode, 
@@ -20,6 +23,8 @@ namespace MVCMusicStore
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Database.SetInitializer<StoreContext>(new DropCreateDatabaseIfModelChanges<StoreContext>());
         }
     }
 }
